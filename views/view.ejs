@@ -4,42 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Not Found</title>
-    <style>
-        body {
-            background-color: #333;
-            color: #000000;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .container {
-            text-align: center;
-            margin-top: 100px;
-        }
-
-        h1 {
-            font-size: 5em;
-            color: #e44d26;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
-
-        img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-        }
-    </style>
+    <title>TextBin</title>
+    <link rel="stylesheet" href="/view-css.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>404 Not Found</h1>
-        <p>Oops! The page you are looking for does not exist.</p>
-        <img src="/images/404-image.jpg" alt="404 Illustration">
+        <h1>Text View</h1>
+        <div id="content" class="code-block language-<%- language %>">
+            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+            <pre><code><%- content %></code></pre>
+        </div>
+        <div class="notification" id="notification">Copied to clipboard!</div>
     </div>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script>
+        function copyToClipboard() {
+            const contentElement = document.getElementById('content');
+            const contentText = contentElement.textContent || contentElement.innerText;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = contentText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            const notification = document.getElementById('notification');
+            notification.style.display = 'block';
+            setTimeout(function () {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
