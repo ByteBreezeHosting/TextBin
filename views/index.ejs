@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextBin</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ByteBreeze TextBin</h1>
+        <form action="/save" method="post" onsubmit="return validateForm()">
+            <textarea name="inputText" id="inputText" placeholder="Paste your text here"></textarea>
+            <button type="submit" id="saveButton">Save</button>
+        </form>
+        <div id="notification" class="notification"></div>
+    </div>
+    
+    <script src="/script.js"></script>
+</body>
+</html>
