@@ -2,17 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TextBin</title>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/dark-mode.css" id="darkModeStyles">
+    <link rel="stylesheet" href="/view-css.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>Shared Text</h1>
-        <p id="content" style="white-space: pre-line;"><%= content %></p>
+        <h1>Text View</h1>
+        <div id="content" class="code-block language-<%- language %>">
+            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+            <pre><code><%- content %></code></pre>
+        </div>
+        <div class="notification" id="notification">Copied to clipboard!</div>
     </div>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script>
+        function copyToClipboard() {
+            const contentElement = document.getElementById('content');
+            const contentText = contentElement.textContent || contentElement.innerText;
 
-    <script src="/script.js"></script>
+            const textarea = document.createElement('textarea');
+            textarea.value = contentText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            const notification = document.getElementById('notification');
+            notification.style.display = 'block';
+            setTimeout(function () {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+    </script>
 </body>
 </html>

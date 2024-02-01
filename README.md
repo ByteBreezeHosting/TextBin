@@ -12,7 +12,7 @@ TextBin is a simple text paste project that allows users to create and share tex
 
 1. Visit [Bin.ByteBreeze](https://bin.bytebreeze.org/).
 2. Enter your text in the provided text box.
-3. Click the "Create Paste" button.
+3. Click the "Save" button.
 4. Copy and share the generated link with others.
 
 ## API Integration
