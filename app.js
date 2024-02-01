@@ -41,10 +41,12 @@ app.get('/:link', (req, res) => {
             const highlightedContent = ansiHTML(row.content);
             res.render('view.ejs', { content: highlightedContent, language: row.language });
         } else {
-            res.status(404).send('Text not found');
+            res.status(404).render('404.ejs');
         }
     });
 });
+
+
 
 function generateRandomLink() {
     return Math.random().toString(36).substring(2, 8);
