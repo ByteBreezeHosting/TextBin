@@ -29,7 +29,7 @@ For developers, TextBin offers an API for integrating text pasting functionality
 
 ## Support and Issues
 
-If you encounter any issues or have questions about TextBin, feel free to reach out through the [official support channels](https://bin.bytebreeze.org/support) or by opening an issue on the [GitHub repository](https://github.com/yourusername/your-repo).
+If you encounter any issues or have questions about TextBin, feel free to open an issue on the [GitHub repository](https://github.com/ByteBreezeHosting/TextBin/issues).
 
 ## Disclaimer
 
