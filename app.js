@@ -29,7 +29,7 @@ app.post('/save', (req, res) => {
     stmt.run(randomLink, inputText);
     stmt.finalize();
 
-    const link = `${req.protocol}://${req.get('host')}/${randomLink}`;
+    const link = `${process.env.URL}/${randomLink}`;
     res.render('result.ejs', { link });
 });
 
